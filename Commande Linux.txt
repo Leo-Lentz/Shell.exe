@@ -1,0 +1,88 @@
+[COMMANDES /!\ SHELL / BASH]
+
+-man man (manuel de toute les commandes)
+-man ls (manuel de commande fichier)
+-ls (savoir les fichier/dossier qu'il y a présent)
+-ls -a (savoir aussi les fichier/dossier caché)
+-ls -ld .* (savoir si c'est un fichier ou un dossier caché)
+-ls -al (obtiendra une liste des fichiers et répertoires, y compris les fichiers cachés, avec des informations détaillées sur les droits)
+
+((find /var/www/html/ -type f -name ".*" -ls((Pour récupérer uniquement les fichiers cachés))
+((find /var/www/html/ -type d -name ".*" -ls((Pour récupérer uniquement les dossiers cachés))
+
+-cat (.nom du fichier(permet d'afficher le contenu du fichier lancé sur le terminal))
+-head -n 10 ~/.nom du fichier (affichier les 10 premières lignes du fichier choisis)
+-tail -n 10 ~/.nom du fichier (affichier les 10 dernières lignes du fichier choisis)
+
+((sudo apt-get install cmatrix((-sudo est utilisé pour exécuter la commande avec des privilèges d'administration.
+                                -apt-get est l'utilitaire de gestion des paquets sur Debian.
+                                -install est l'action que nous voulons effectuer pour installer un paquet.
+                                -cmatrix est le nom du paquet que nous voulons installer.))
+-sudo apt-get upgrade
+-sudo apt-get dist-upgrade
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+-echo -e "User1\nUser2" > users.txt  (Créer le fichier users.txt contenant User1 et User2 séparés par un retour à la ligne)
+-sudo groupadd Plateformeurs (Créer un groupe appelé "Plateformeurs")
+-sudo useradd User1 (Créer un utilisateur appelé "User1")
+-sudo usermod -aG Plateformeurs User2 (Ajouter "User2" au groupe "Plateformeurs")
+-cp users.txt droits.txt (Copier le contenu du fichier users.txt dans un fichier droits.txt)
+-cp users.txt groupes.txt (Copier le contenu du fichier users.txt dans un fichier groupes.txt)
+-sudo chown User1 droits.txt (Changer le propriétaire du fichier droits.txt pour mettre "User1")
+-sudo chmod 400 droits.txt (Changer les droits du fichier droits.txt pour que "User2" ait uniquement un accès en lecture)
+-sudo chmod 444 groupes.txt (Changer les droits du fichier groupes.txt pour que les utilisateurs puissent y accéder en lecture uniquement)
+-sudo chmod 660 groupes.txt (Changer les droits du fichier pour que le groupe "Plateformeurs" puisse y accéder en lecture/écriture)
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+- alias la='ls -la' (Ajouter un alias qui permettra de lancer la commande “ls -la” en tapant “la”)
+-alias update='sudo apt-get update' (Ajouter un alias qui permettra de lancer la commande “apt-get update” en tapant
+“update”)
+-alias upgrade='sudo apt-get upgrade' (Ajouter un alias qui permettra de lancer la commande “apt-get upgrade” en
+tapant “upgrade”)
+-export USER="votre_nom_d_utilisateur" (Ajouter une variable d’environnement qui se nommera “USER” et qui sera égale à
+votre nom d’utilisateur)
+-source ~/.bashrc (Mettre à jour les modifications de votre bashrc dans votre shell actuel)
+-printenv (Afficher les variables d’environnement)
+-export PATH="/home/votre_utilisateur/Bureau:$PATH" (Ajouter à votre Path le chemin "/home/'votre utilisateur'/Bureau")
+
+
+ 
+
+ R W X
+ 4 2 1
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+-wc -l /etc/apt/sources.list > nb_lignes.txt (Cette commande utilise la commande wc pour compter le nombre de lignes dans le fichier "/etc/apt/sources.list" et la redirection (>) pour enregistrer le résultat dans le fichier "nb_lignes.txt".)
+-cat /etc/apt/sources.list > save_sources (Cette commande utilise la commande cat pour afficher le contenu du fichier "/etc/apt/sources.list" et la redirection (>) pour enregistrer le résultat dans le fichier "save_sources".)
+-grep -r "alias" . | grep "^\." > fichiers_aliases.txt (Cette commande utilise la commande grep pour rechercher les occurrences du mot "alias" dans tous les fichiers du répertoire courant (et de ses sous-répertoires) et la première commande grep pour filtrer les résultats pour n'afficher que les fichiers commençant par ".". La redirection (>) est utilisée pour enregistrer le résultat dans le fichier "fichiers_aliases.txt".)
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+-sudo apt install tree 
+-tree / > tree.save & (La commande tree / affiche l'arborescence complète du répertoire racine /, et la redirection (>) est utilisée pour enregistrer le résultat dans le fichier "tree.save". Le & à la fin de la commande permet de lancer la commande en arrière-plan.)
+-ls -la | wc -l (La commande ls -la liste tous les fichiers et dossiers, y compris les fichiers cachés, dans le dossier courant. La commande wc -l compte le nombre de lignes de sortie. Ainsi, en utilisant la redirection (|), la sortie de ls -la est passée à wc -l pour compter le nombre d'éléments.)
+-sudo apt-get update && sudo apt-get upgrade (La commande apt-get update met à jour la liste des paquets disponibles, et la commande apt-get upgrade met à jour les paquets installés sur votre système. Les deux commandes sont combinées avec l'opérateur &&, ce qui signifie que la deuxième commande ne sera exécutée que si la première commande réussit.)
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+-nano myfirstscript.sh (Utilisez la commande suivante pour créer le fichier myfirstscript.sh et ouvrir le fichier avec un éditeur de texte (par exemple, Nano)
+-echo "I'm a script" (À l'intérieur de l'éditeur de texte, ajoutez la ligne suivante)
+((Enregistrez le fichier en appuyant sur Ctrl + O, puis appuyez sur Enter pour confirmer le nom du fichier.
+
+Quittez l'éditeur de texte en appuyant sur Ctrl + X))
+-chmod +x myfirstscript.sh (Maintenant, pour donner les droits d'exécution à votre utilisateur, utilisez la commande suivante)
+-./myfirstscript.sh (Cela exécute le script contenu dans le fichier myfirstscript.sh et vous devriez voir la sortie "I'm a script" s'afficher dans votre terminal.)
+
+
+
+
+
+
+
+
+
+
+
