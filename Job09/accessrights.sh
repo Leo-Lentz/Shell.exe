@@ -5,27 +5,29 @@ csv_file="/home/heren/Shell_Userlist.csv"
 
 # Fonction pour créer un utilisateur
 create_user() {
-    username=$1
-    password=$2
-    role=$3
-
+    local id=$1
+    local prenom=$2
+    local nom=$3
+    local password=$4
+    local role=$5
     # Création de l'utilisateur
-    useradd "$username" -m -p "$password"
+    useradd -m "$nom.$prenom" -p "$password" -u "$id"
 
     # Attribution du rôle de super utilisateur si l'utilisateur est un admin
-    if [ "$role" = "admin" ]; then
-        usermod -aG sudo "$username"
+    if [[ "$role" == "Admin" ]]; then
+        usermod -aG sudo "$nom.$prenom"
     fi
 
-    echo "Utilisateur $username créé avec succès."
+    echo "Utilisateur $nom.$prenom créé avec succès."
 }
 
 # Lecture du fichier CSV et création des utilisateurs
-while IFS=',' read -r username password role
+while IFS=',' read -r id prenom nom password role
 do
     # Vérification si les champs sont vides
-    if [ -n "$username" ] && [ -n "$password" ] && [ -n "$role" ]; then
+    if [[ -n "$id" && -n "$prenom" && -n "$nom" && -n "$password" && -n "$role" ]]; then
         # Appel de la fonction pour créer l'utilisateur
-        create_user "$username" "$password" "$role"
+        create_user "$id" "$prenom" "$nom" "$password" "$role"
     fi
 done < "$csv_file"
+
